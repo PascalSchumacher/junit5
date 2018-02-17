@@ -32,6 +32,9 @@ dependencies {
 	testImplementation(project(':junit-platform-launcher'))
 	if (gradle.ext.kotlinIsSupported) testImplementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
 
+	// Needed for `generateConsoleLauncherOptions` task
+	testRuntimeOnly(project(path: ':junit-platform-console', configuration: 'shadow'))
+
 	testRuntimeOnly(project(':junit-vintage-engine'))
 	testRuntimeOnly(project(':junit-jupiter-engine'))
 	testRuntimeOnly("org.apache.logging.log4j:log4j-core:${log4jVersion}")
